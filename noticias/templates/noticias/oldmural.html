@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mural.css' %}">
+    <title>Noticias</title>
+</head>
+<body>
+    <div class ='main-container'><h1 class='noticias-text'>Noticias</h1>
+        {% if user.username %}
+        <h3>Você esta logado como: <span>{{user.username}}</span></h4>
+            
+        <a class ='sair' href="{% url "sair" %}"><div class ='logout-button'>Sair</div></a>
+        {% endif %}
+    </div>
+    {% if noticias %}
+    {% for noticia in noticias %}
+    <dl>
+        <h3>Por: {{noticia.user}}</h3>
+          <dt>{{noticia.titulo}}</dt> 
+          <dd>{{noticia.notice}}</dd>
+    </dl>
+    <p>Noticia cadastrada em: {{noticia.data}}</p>
+    <hr>
+    {% endfor %}
+    <h2><a href="{% url "deletar" %}">Deletar menssagens</a></h2>
+    <h2><a href ="{% url "atualizar_noticia"%}">Editar noticias</a></h2>
+    {% else %}
+    <h1>Não existem notícias cadastradas no mural</h1>
+    <h2><a href="{% url "cadastrar-noticias" %}">Clique aqui para cadastrar uma noticia</a></h2>
+    {% endif %}
+    <h3><a href="{% url "cadastrar-noticias" %}">Cadastrar uma nova notícia</a> </h3>
+
+    
+
+
+    
+</body>
+</html>

@@ -1,0 +1,383 @@
+body {
+    width: 950px;
+    margin: 0 auto;
+
+}
+
+.main-div-nav {
+    margin-top: 25px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-around;
+    background-color: rgba(255, 228, 196, 0.582);
+}
+
+.div-nav {
+    width: 100px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.weather {
+    height: 80px;
+    margin-top: 7px;
+}
+
+.weather-img {
+    width: inherit;
+    height: inherit;
+    border-radius: 30%;
+}
+
+.page-title {
+    margin-left: 120px;
+    text-align: center;
+    width: 400px;
+    font-size: 50px;
+}
+
+.login {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    border-radius: 7px;
+    background-color: rgb(38, 128, 245);
+}
+
+.login:hover {
+    background-color: rgb(32, 103, 196);
+
+}
+
+.user {
+    width: 80px;
+    height: 80px;
+    margin-top: 4px;
+
+    border-radius: 50%;
+    border: 6px solid rgb(83, 63, 173);
+}
+
+.user-name {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+
+.user-image-div {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+
+}
+
+.user-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.mural-avisos {
+    margin-left: 350px
+}
+
+.scrollable-div {
+    width: 700px;
+    /* largura da div */
+    margin: 0 auto;
+    max-height: 600px;
+    /* altura máxima antes da barra de rolagem */
+    overflow-y: auto;
+    /* Adiciona barra de rolagem vertical quando necessário */
+    border: none;
+    /* Apenas para visualização */
+    margin-top: 20px;
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.botao-aviso {
+    background-color: rgb(0, 110, 255);
+    border-radius: 7px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    width: 120px;
+    height: 25px;
+}
+
+.botao-aviso:hover {
+
+    background-color: rgb(0, 90, 207);
+}
+
+.novo-aviso {
+    margin-left: 700px;
+}
+
+.div-main-aviso {
+
+    border-radius: 10px;
+    height: 180px;
+    display: flex;
+}
+
+.div-esquerda {
+    width: 700px;
+    margin-left: 10px;
+}
+
+.div-direita {
+
+    width: 350px;
+}
+
+.div-mural-botoes {
+    display: flex;
+}
+
+.div-botoes {
+    width: 90px;
+    height: 22px;
+    border: 1px solid black;
+    font-size: 18px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.botao-visualizar {
+    background-color: rgba(14, 144, 250, 0.658);
+
+}
+
+.botao-editar {
+    background-color: rgba(166, 255, 0, 0.692);
+}
+
+.botao-apagar {
+    background-color: rgba(255, 75, 75, 0.658);
+}
+
+.mural-data {
+    margin-top: 140px;
+    margin-left: 70px;
+
+}
+
+.mural-editado {
+    margin-left: 160px;
+    margin-top: 0px;
+    color: rgb(25, 0, 255);
+
+}
+.main-footer-div{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-color: bisque;
+    border: 1px solid black;
+    height: 75px;
+}
+.footer-esquerda{
+    width: 300px;
+  
+    text-align: center;
+
+}
+.footer-direita{
+    width: 300px;
+    
+    text-align: center;
+
+}
+
+@media screen and (max-width: 576px) {
+
+    body {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-div-nav {
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+        margin-top: 0px;
+    }
+
+    .div-nav {
+        width: 50px;
+        height: 25px;
+        margin-top: 10px;
+    }
+
+    .page-title {
+        margin-left: 15px;
+        text-align: center;
+        width: 100px;
+        font-size: 25px;
+    }
+
+    .user {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    .user-image-div {
+        display: flex;
+        border-radius: 50%;
+        flex-direction: column;
+        border-left: 10px;
+
+    }
+
+    .user-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .page-title {
+        font-size: 30px;
+        border: none;
+    }
+
+    .login {
+        width: 60px;
+        font-size: 20px;
+        height: 25px;
+        border: none;
+        margin-right: 10px;
+
+    }
+
+    .weather {
+        height: 50px;
+        border: none;
+
+    }
+
+    .weather-img {
+        width: 50px;
+        height: inherit;
+        border-radius: 7px;
+    }
+
+    .mural-avisos {
+        margin-left: 80px
+    }
+
+    .scrollable-div {
+        width: 300px;
+        /* largura da div */
+        margin: 0 auto;
+        max-height: 400px;
+        /* altura máxima antes da barra de rolagem */
+        overflow-y: auto;
+        /* Adiciona barra de rolagem vertical quando necessário */
+        border: none;
+        /* Apenas para visualização */
+        margin-top: 20px;
+        background-color: bisque;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .botao-aviso {
+        background-color: rgb(0, 110, 255);
+        border-radius: 7px;
+        text-align: center;
+        font-size: 15px;
+        color: white;
+        width: 80px;
+        height: 20px;
+    }
+
+    .botao-aviso:hover {
+
+        background-color: rgb(0, 90, 207);
+    }
+
+    .novo-aviso {
+        margin-left: 250px;
+    }
+
+    .div-main-aviso {
+        width: 80px;
+        border-radius: 10px;
+        height: 150px;
+        display: flex;
+        
+    }
+
+    .div-esquerda {
+        width: 150px;
+        margin-left: 0px;
+        height: 125px;
+        font-size: 11px;
+        margin-top: 0px;
+    }
+
+    .div-direita {
+
+        width: 200px;
+        height: 50px;
+    }
+
+    .div-mural-botoes {
+        display: flex;
+    }
+
+    .div-botoes {
+        width: 50px;
+        height: 15px;
+        border: 1px solid black;
+        font-size: 10px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    .botao-visualizar {
+        background-color: rgb(14, 144, 250);
+
+    }
+
+    .botao-editar {
+        background-color: rgb(166, 255, 0);
+    }
+
+    .botao-apagar {
+        background-color: rgb(255, 55, 55);
+    }
+
+    .mural-data {
+        margin-top: 110px;
+        margin-left: 40px;
+        font-size: 11px;
+
+    }
+
+    .mural-editado {
+        margin-left: 100px;
+        margin-top: 0px;
+        color: rgb(25, 0, 255);
+        font-size: 15px;
+    }
+    .footer-words{
+        font-size: 13px;
+    }
+
+}

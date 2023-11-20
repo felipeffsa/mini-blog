@@ -1,0 +1,42 @@
+.perfil-foto-main {border: 2px solid black;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-left: 90px;
+}
+.perfil-foto{
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+}
+body{
+    background-color: rgba(207, 166, 166, 0.493)
+
+}
+.header-perfil{
+    font-size: 60px;
+    font-family: 'Playpen Sans', sans-serif;
+    text-align: center;
+}
+.main-c{
+    display: flex;
+    margin-top: 50px;
+}
+
+
+
+.form-perfil{
+    width: 400px;
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.nome-perfil{
+    text-align: center;
+    padding: 5px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: rgb(204, 230, 253);
+}

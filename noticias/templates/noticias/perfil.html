@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Playpen+Sans:wght@300&family=Titillium+Web:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+   
+    <!--Perfil- nome do usuário-->
+    <title>Perfil-{{user.username}}</title>
+</head>
+</head>
+<body style="background-color: rgba(207, 166, 166, 0.493)">
+    <div class="container-fluid header-perfil">Perfil</div>
+    <form action="." method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container-fluid main-c">
+            <div class="perfil-foto-main">
+                {% if pessoa.profile_image %}
+                    <img class="perfil-foto" src={{ pessoa.profile_image.url }} alt="Imagem de Perfil"> 
+                {% else %} 
+                <img class="perfil-foto" src="{% static 'img/entrar.png' %}" alt="Imagem Padrão">
+                {% endif %}
+                <label class="file-label" for="file-input">Alterar imagem</label>
+                <input class="file-input" type="file" id="file-input" name="imagem">
+                <input class="submit-main" type="submit" value="Salvar alterações">
+            </div>
+            <b>Fale um pouco sobre você:</b>
+            <div class="form-perfil"> 
+                <textarea class="textarea-text" name="texto-perfil" id="" cols="30" rows="10">{{ pessoa.profile_text }}</textarea>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

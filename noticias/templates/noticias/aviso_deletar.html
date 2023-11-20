@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .apagar-main{
+            display: flex;
+        }
+        .apagar-nao{
+            margin-left: 25px;
+        }
+    </style>
+    <title>Deseja deletar ?</title>
+</head>
+<body>
+    <h1>Voce tem certeza que deseja deletar essa menssagem ?</h1>
+    <div class ='apagar-main'>
+    <form action="." method ='POST'>{% csrf_token %}
+        <input type="submit" value ='Sim'>
+    </form>
+    <a href="{% url "mural" %}"><input class ='apagar-nao' type="submit" value ='Não'></a>
+</div>
+</body>
+</html>

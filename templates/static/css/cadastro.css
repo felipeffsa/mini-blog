@@ -1,0 +1,33 @@
+
+body{
+    background-color: maroon;
+}
+
+.alert-danger{
+    background-color: rgb(231, 56, 56);
+
+}
+.alert-warning{
+    background-color: blue;
+    color: white;
+}
+.container.pt-5.main{
+    display: flex;
+    justify-content: space-between;
+}
+.button-login{
+    background-color: rgb(97, 97, 216);
+    text-align: center;
+    width: 50px;
+    height: 27px;
+    color: white;
+    border-radius: 7px;
+}
+.button-login:hover{
+    background-color: rgb(71, 71, 182);
+
+}
+.personal-class{
+    width: 450px;
+    margin-left: 450px;
+}

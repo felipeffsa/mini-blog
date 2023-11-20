@@ -1,0 +1,48 @@
+.perfil-foto-main{
+    border: 2px solid black;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-left: 100px;
+}
+.perfil-foto{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+
+}
+body{
+    background-color: rgba(207, 166, 166, 0.493)
+
+}
+.header-perfil{
+    font-size: 60px;
+    font-family: 'Playpen Sans', sans-serif;
+    text-align: center;
+}
+.main-c{
+    display: flex;
+    margin-top: 50px;
+}
+.textarea-text{
+  
+width: 300px;
+height: 150px;
+font-size: 14px;
+border: 1px solid #ccc;
+padding: 5px;
+margin-left: 20px;
+}
+.file-input{
+    margin-top: 20px;
+    display: none;
+}
+.file-label{
+    font-size: 20px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+.submit-main{
+    margin-top: 100px;
+}

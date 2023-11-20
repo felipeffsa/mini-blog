@@ -1,0 +1,53 @@
+
+body{
+
+background-color: maroon;
+margin: 0 auto;
+}
+
+.alert-danger {
+background-color: rgb(231, 56, 56);
+
+}
+
+.alert-warning {
+background-color: blue;
+color: white;
+}
+
+.container.pt-5.main {
+display: flex;
+justify-content: space-between;
+}
+
+.personal-class {
+width: 200px;
+margin-left: 450px;
+}
+
+.image-main {
+margin-right: 620px;
+margin-top:50px
+}
+
+@media screen and (max-width: 576px) {
+
+
+body{
+  margin: 0 auto;
+}
+.container {
+  margin: 0 auto;
+  width: 80px;
+  
+}
+
+.personal-class {
+  width: 170px;
+  margin-left: 100px;
+
+}
+
+
+
+}

@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mural.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Playpen+Sans:wght@300&family=Titillium+Web:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+   <style>
+    .container.menu{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        background-color: rgba(212, 176, 176, 0.349);
+        border-radius: 10px;
+        
+        }
+        .foto-imagem{
+            width: 100px;
+            height: 100px;
+            border: 10px solid rgba(123, 111, 146, 0.952);
+            border-radius: 60%;
+        }
+        .main-title{
+            font-size: 50px;
+            font-family: 'Playpen Sans', sans-serif;
+            
+        }
+        .container.mural{
+            
+            width: 900px;
+            height: 700px;
+    
+            
+            
+           
+        }
+        .container.radio{
+            border: 2px solid black;
+            width: 900px;
+            height: 100px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+        }
+        .butao-sair{
+            background-color: rgba(0, 0, 255, 0.596);
+            color: white;
+            width: 70px;
+            height: 40px;
+            margin-top: 20px;
+    
+            text-align: center;
+            border-radius: 7px;
+            font-size: 25px;
+        }
+        .butao-sair:hover{
+            background-color: rgba(1, 1, 168, 0.596);
+    
+        }
+        body{
+            background-color: rgba(207, 166, 166, 0.493)
+        }
+        .my-div {
+                max-height: 600px; /* Defina a altura máxima desejada */
+                width: 900px;
+                padding: 20px; /* Opcional: Adicione preenchimento para espaçamento interno */
+                background-color: rgba(212, 176, 176, 0.349);
+                border-radius: 20px;
+                
+        }
+        .msg-mural{
+            text-align: center;
+            font-family: 'Playpen Sans', sans-serif;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.548);
+            width: 900px;
+            margin-left: 200px;
+        }
+        .container.radio{
+            text-align: center;
+    
+        }
+        my-div::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* Cor da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada da barra de rolagem */
+    }
+    .container.direitos-direita{
+        margin-left: 600px;
+    }
+    .final{
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 25px 25px 25px;
+        background-color: rgba(212, 176, 176, 0.349);
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    .weather-square{
+        border: 2px solid black;
+        width: 100px;
+        height: 80px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .data{
+        margin-left: 600px;
+    }
+    .titulo-text{
+        font-weight: normal;
+    }
+    .perfil-foto{
+        display: flex;
+        margin-right: 100px;
+    }
+    .perfil-name{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .main-mural-msg{
+        display: flex;
+        justify-content: space-between;
+    }
+    .editar-botao{
+        margin-right: 20px;
+    }
+    .main-div{
+        font-size: 15px;
+    }
+    
+    .link-sair{
+        text-decoration: none;
+    }
+    .link-cadastrar{
+        text-decoration: none;
+    }
+    
+    .cadastrar-noticia{
+        width: 500px;
+        margin-left: 550px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row-reverse;
+    
+    }
+    .botao-cadastrar{
+        width: 120px;
+        height: 25px;
+        background-color: rgba(0, 0, 255, 0.596);
+        color: white;
+        text-align: center;
+        border-radius: 7px;
+    }
+    .botao-cadastrar:hover{
+        background-color: rgba(3, 3, 168, 0.596);
+    }
+    .castor-pulando{
+        width:250px;
+        height:250px;
+    }
+    
+    
+   </style>
+    <title>Mural</title>
+</head>
+<body style='background-color: rgb(203, 226, 166)'>
+   
+    <div class="container-lg">
+        <div class="container menu">
+         <div class ='perfil-foto'>
+            
+            <div class ='foto-imagem-main'>
+                {% if user.username %}
+                <img class ='foto-imagem'src={{ pessoa.profile_image.url }} alt="Imagem de perfil"> 
+            </div>
+        
+            <div class ='perfil-name'>
+        
+                <b>{{user.username}}</b>
+                
+                <a href="{% url "perfil" %}"><p>Acessar perfil</p></a>
+               
+                {% else %}
+                <p style='margin-top: 25px;'>Usuario não logado</p>
+                {% endif %}
+                
+            </div>
+           
+           
+        
+      
+          
+        </div>
+            <div class ='main-title'>Rapid News</div>
+            <div class ='weather-square'>Clima</div>
+        
+            
+            {% if not user.username %}
+            <a  class ='link-sair' href="{% url "login" %}"><div class ='butao-sair'>Entrar</div></a>
+            {% else %}
+            <a  class ='link-sair' href="{% url "sair" %}"><div class ='butao-sair'>Sair</div></a>
+            {% endif %}
+        </div>
+        
+        <div class ='container radio'>
+
+        </div>
+        <h1 class ='msg-mural'>Mural de avisos</h1><br><br>
+        <div class =' cadastrar-noticia'>
+            {% if user.username %}
+            <a  class ='link-cadastrar' href="{% url "cadastrar-noticias" %}"><div class ='botao-cadastrar'>Novo aviso</div></a>
+            {% endif %}
+        </div>
+        <div class ='container mural'>
+            <div class="my-div overflow-auto">
+                                    
+            {% if noticias %}
+            {% for noticia in noticias  %}
+                
+                <div class ='main-mural-msg'>
+                    <div class="main-div">
+                        <div class="div-esquerda">
+                           {% if not user.username %}
+                           <p><b>Por: {{noticia.user}}</b></p>
+                            {% else %}
+                            <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{noticia.user}}</b></p></a>
+                    
+                            {% endif %}
+                            <p><b>Titulo:</b> {{noticia.titulo}}</p>
+                            <p class ='msg-esquerda'><b>Mensagem:</b> {{noticia.notice}}</p>
+                        </div>
+                        <div class="div-direita">   
+                            {% if noticia.user.id == user.id %}
+                            <div class="botoes"><a href="{% url "noticia_nova" noticia.id %}"><input class ='editar-botao' value ='Editar'type="button"></a><a href="{% url "aviso_deletar" noticia.id %}"><input class ='apagar-botao'value ='Apagar'type="button"></a></div>
+                            
+                            {% endif %}
+                            {% if noticia.atualizado %}
+                            <p style ='margin-top: 10px; color:blue'>Editado</p>
+                            {% endif %}
+                            <div class="data">{{noticia.data}}</div>
+                        </div>
+                    </div>
+                
+                <hr>
+                    
+                
+            </div>
+            
+            <HR></HR>
+            {% endfor %}
+            {% else %}
+            <h1>Não existem notícias cadastradas neste mural</h1>
+            {% endif %}
+        
+        
+            
+    
+            
+                
+            
+        </div>
+            
+             </div>
+            
+        </div>
+        <div class ='container final'>
+        <div class="container direitos-esquerda">@ 2023- Todos os direitos reservados </div>
+        <div class="container direitos-direita"> By: Felipe </div>
+        </div>
+    </div>
+</body>
+</html>
