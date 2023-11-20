@@ -1,2 +1,2 @@
 # mini-blog
- Esse é um projeto de um blog onde a pessoa poderá se cadastrar, fazer login, publicar noticias e interagir com os outros usuarios
+ Esse é um projeto feito com Django framework. Consiste de um blog onde o usuario poderá se cadastrar, fazer login, publicar notícias e interagir com os outros usuários.
