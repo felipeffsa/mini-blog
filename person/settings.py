@@ -55,6 +55,9 @@ MIDDLEWARE = [
 
 ]
 
+
+
+
 ROOT_URLCONF = 'person.urls'
 
 TEMPLATES = [

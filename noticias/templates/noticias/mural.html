@@ -117,6 +117,7 @@
             color: white;
             width: 120px;
             height: 25px;
+            text-decoration:None;
         }
 
         .botao-aviso:hover {
@@ -126,6 +127,7 @@
 
         .novo-aviso {
             margin-left: 700px;
+            text-decoration:
         }
 
         .div-main-aviso {
@@ -356,6 +358,7 @@
                 margin-top: 20px;
                 margin-left: 15px;
             }
+        
 
             .botao-visualizar {
                 background-color: rgb(14, 144, 250);
@@ -389,7 +392,7 @@
 
         }
     </style>
-    <title>nav-bar</title>
+    <title>Mural</title>
 </head>
 
 <body>
@@ -420,7 +423,7 @@
     <hr>
     <div class="novo-aviso">
         {% if user.username %}
-        <a href="{% url "cadastrar-noticias" %}"><div class='botao-aviso'>Novo aviso</div></a>
+        <a style ='text-decoration:none' href="{% url "cadastrar-noticias" %}"><div class='botao-aviso'>Novo aviso</div></a>
         {% endif %}
     </div>
     <div class="scrollable-div">
@@ -429,16 +432,35 @@
             <div class='div-esquerda'>
                 {% if not user.username %}
                 <h3>Por: {{noticia.user}}</h3>
-                {% else %}
-                <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{noticia.user}}</b></p></a>
                 {% endif %}
+             
+                {% if noticia.user.username == user.username %}
+                <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: Você</b></p></a>
+
+                {% else %}
+                <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{ noticia.user }}</b></p></a>
+                {% endif %}
+             
+             
+           
                 <h4>Título: {{noticia.titulo}}</h4>
                 <h4>Mensagem: {{noticia.notice}}</h4>
                 {% if noticia.user.id == user.id %}
                 <div class='div-mural-botoes'>
-                    <a style ='text-decoration:none ' href="#"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
+                    <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
                     <a style ='text-decoration:none ' href="{% url "noticia_nova" noticia.id %}"><div class='div-botoes botao-editar'><b>Editar</b></div></a>
                     <a style ='text-decoration:none ' href="{% url "aviso_deletar" noticia.id %}"> <div class='div-botoes botao-apagar'><b>Apagar</b></div></a>
+
+                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}"> <div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
+            
+                    <h4>{{noticia.curtida}}</h4>
+                    
+                </div>
+                {% else %}
+                <div class='div-mural-botoes'>
+                    <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
+                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}"> <div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
+                    <h4>{{noticia.curtida}}</h4>
                 </div>
                 {% endif %}
             </div>

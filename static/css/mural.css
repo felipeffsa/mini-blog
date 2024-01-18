@@ -110,6 +110,7 @@ body {
     color: white;
     width: 120px;
     height: 25px;
+    text-decoration: none;
 }
 
 .botao-aviso:hover {
@@ -198,7 +199,9 @@ body {
     text-align: center;
 
 }
-
+.link-aviso{
+    text-decoration: none;
+}
 @media screen and (max-width: 576px) {
 
     body {
