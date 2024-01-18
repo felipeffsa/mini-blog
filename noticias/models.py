@@ -6,12 +6,14 @@ from django.db import models
 
 # Create your models here.
 class Noticias(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'noticias_autor')
     titulo = models.CharField(max_length=50)
     notice = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
     atualizado = models.BooleanField(default=False)
-    curtida = models.IntegerField(default=0)
+    curtida = models.ManyToManyField(User, related_name='noticias_curtidas')
 
     def __str__(self) -> str:
         return self.titulo
+
+  
