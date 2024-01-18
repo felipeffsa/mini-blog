@@ -55,6 +55,7 @@ def cadastro(request):
 
 
 def logar(request):
+
     if request.method == 'GET':
         return render(request, 'login.html')
     elif request.method == 'POST':
@@ -63,7 +64,9 @@ def logar(request):
         # aqui verifica se o usuario pertence ao banco de dados,
         #  caso contrário irá retornar um NONE
         user = authenticate(username=nome, password=senha)
+        print(user)
         if user:
+            #aqui é a função login que pede um request e o authenticate
             login(request, user)
             return redirect('mural')
         else:

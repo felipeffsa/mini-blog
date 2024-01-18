@@ -1,10 +1,20 @@
+import sys
+sys.path.append("C:\\Users\\felip\\Desktop\\mini-blog")
+
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'person.settings')
+import django
+django.setup()
+
+
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
 from usuarios.models import UserProfile
 
-from .models import Noticias
+from noticias.models import Noticias
 
 # Create your views here.
 
@@ -35,18 +45,21 @@ def cadastrar_noticias(request):
 
 
 def noticias(request):
-    noticias = Noticias.objects.all().order_by('-id')
+    noticias = Noticias.objects.all().order_by('-curtida')
+ 
 
     if request.user.is_authenticated:
-        user = User.objects.get(username=request.user)
+  
+        user = request.user
+    
         pessoa = UserProfile.objects.get(user=request.user)
 
         return render(request, 'noticias/mural.html',
                       context={'noticias': noticias,
-                               'user': user, 'pessoa': pessoa})
+                               'user': user, 'pessoa': pessoa,})
 
     else:
-
+    
         return render(request, 'noticias/mural.html',
                       context={'noticias': noticias})
 
@@ -116,7 +129,20 @@ def perfil(request):
     return render(request, 'noticias/perfil.html', context={'pessoa': pessoa})
 
 
+@login_required
+def visualizar(request,id):
+    visualizar = Noticias.objects.get(id=id)
+    return render(request, 'noticias/visualizar.html', context={'visualizar':visualizar})
+
 def outperfil(request, id):
     perfil = UserProfile.objects.get(id=id)
     return render(request, 'noticias/outperfil.html',
                   context={'perfil': perfil})
+@login_required
+def curtida(request, id):
+    curtidas = Noticias.objects.get(id = id)
+    curtidas.curtida +=1
+    curtidas.save()
+
+    return redirect('mural')
+   
