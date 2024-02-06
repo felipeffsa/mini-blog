@@ -45,7 +45,7 @@ def cadastrar_noticias(request):
 
 
 def noticias(request):
-    noticias = Noticias.objects.all().order_by('-curtida')
+    noticias = Noticias.objects.all()
     
 
  
