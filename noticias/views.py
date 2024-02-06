@@ -41,7 +41,7 @@ def cadastrar_noticias(request):
                 notice=notice
             )
 
-        return render(request, 'noticias/cadastro_noticias.html')
+        return redirect('mural')
 
 
 def noticias(request):
