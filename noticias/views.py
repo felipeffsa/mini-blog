@@ -5,7 +5,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'person.settings')
 import django
 django.setup()
-
+from logging import Logger
 
 
 from django.contrib.auth.decorators import login_required
@@ -143,17 +143,18 @@ def outperfil(request, id):
                   context={'perfil': perfil})
 @login_required
 def curtida(request, id):
-    curtida = Noticias.objects.get(id=id)
+    noticias = Noticias.objects.get(id=id)
 
-
-    if request.user in curtida.curtida.all():
+    if request.user in noticias.curtida.all():
             
-        curtida.curtida.remove(request.user)
+        noticias.curtida.remove(request.user)
         
     
     
     else:
-        curtida.curtida.add(request.user)
+        noticias.curtida.add(request.user)
+        
+
     
     return redirect('mural')
         

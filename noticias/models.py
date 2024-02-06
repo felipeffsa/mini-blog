@@ -11,8 +11,9 @@ class Noticias(models.Model):
     notice = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
     atualizado = models.BooleanField(default=False)
-    curtida = models.ManyToManyField(User, related_name='noticias_curtidas')
-
+    curtida = models.ManyToManyField(User)
+    
+   
     def __str__(self) -> str:
         return self.titulo
 

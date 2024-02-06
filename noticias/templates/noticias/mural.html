@@ -432,7 +432,7 @@
             <div class='div-esquerda'>
                 
              
-                {% if noticia.user.username == user %}
+                {% if noticia.user.username == user.username %}
                 <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: Você</b></p></a>
 
                 {% else %}
