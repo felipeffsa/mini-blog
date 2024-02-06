@@ -12,6 +12,12 @@ class Noticias(models.Model):
     data = models.DateTimeField(auto_now_add=True)
     atualizado = models.BooleanField(default=False)
     curtida = models.ManyToManyField(User, related_name='noticas_curtida')
+    numero = models.IntegerField(default=0)
+    
+    
+    def aqui(self):
+        curtidas = [resultado for resultado in self.curtida.all()]
+        return len(curtidas)
     
    
     def __str__(self) -> str:

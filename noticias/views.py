@@ -45,7 +45,7 @@ def cadastrar_noticias(request):
 
 
 def noticias(request):
-    noticias = Noticias.objects.all()
+    noticias = Noticias.objects.all().order_by('-numero')
     
 
  
@@ -144,6 +144,7 @@ def outperfil(request, id):
 @login_required
 def curtida(request, id):
     noticias = Noticias.objects.get(id=id)
+    
 
     if request.user in noticias.curtida.all():
             
@@ -155,6 +156,8 @@ def curtida(request, id):
         noticias.curtida.add(request.user)
         
 
+    noticias.numero += noticias.aqui()
+    noticias.save()
     
     return redirect('mural')
         

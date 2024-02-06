@@ -442,7 +442,7 @@
              
            
                 <h4>Título: {{noticia.titulo}}</h4>
-                <h4>Mensagem: {{noticia.notice}}</h4>
+                <h4>Mensagem: {{noticia.notice|truncatechars:95}}</h4>
                 {% if noticia.user.id == user.id %}
                 <div class='div-mural-botoes'>
                     <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
