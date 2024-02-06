@@ -454,13 +454,30 @@
                     <h4>{{noticia.curtida.count}}</h4>
                     
                 </div>
-                {% else %}
+
+                {% elif not user.is_authenticated %}
+
+                
                 <div class='div-mural-botoes'>
-                    <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
-                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}"> <div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
-                    <h4>{{noticia.curtida.count}}</h4>
+                    <a style ='text-decoration:none ' href="{% url "necessita_login"%}"><div class='div-botoes botao-visualizar '><b>Visualizar</b></div></a>
+                
+                
+                    <h4>Curtidas-{{noticia.curtida.count}}</h4>
                 </div>
+                {% else %}
+            
+                <div class='div-mural-botoes'>
+                    <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar '><b>Visualizar</b></div></a>
+                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}" ><div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
+                
+                    <h4>Curtidas-{{noticia.curtida.count}}</h4>
+                </div>
+
+               
                 {% endif %}
+            
+
+
             </div>
             <div class="div-direita">
                 {% if noticia.atualizado %}

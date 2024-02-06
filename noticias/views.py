@@ -162,5 +162,6 @@ def curtida(request, id):
     return redirect('mural')
         
 
-    
+def necessita_login(request):
+    return render(request,'noticias/necessita_login.html')
    

@@ -11,7 +11,8 @@ urlpatterns = [
     path('perfil/', views.perfil, name='perfil'),
     path('outperfil/<int:id>/', views.outperfil, name='out_perfil'),
     path('visualizar/<int:id>/', views.visualizar, name ='visualizar'),
-    path('curtida/<int:id>/', views.curtida, name ='curtida')
+    path('curtida/<int:id>/', views.curtida, name ='curtida'),
+    path('login_required/',views.necessita_login,name='necessita_login')
 
 
 ]
