@@ -5,7 +5,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'person.settings')
 import django
 django.setup()
-
+from logging import Logger
 
 
 from django.contrib.auth.decorators import login_required
@@ -45,12 +45,15 @@ def cadastrar_noticias(request):
 
 
 def noticias(request):
-    noticias = Noticias.objects.all().order_by('-curtida')
+    noticias = Noticias.objects.all()
+    
+
  
 
     if request.user.is_authenticated:
   
         user = request.user
+        
     
         pessoa = UserProfile.objects.get(user=request.user)
 
@@ -140,9 +143,21 @@ def outperfil(request, id):
                   context={'perfil': perfil})
 @login_required
 def curtida(request, id):
-    curtidas = Noticias.objects.get(id = id)
-    curtidas.curtida +=1
-    curtidas.save()
+    noticias = Noticias.objects.get(id=id)
 
+    if request.user in noticias.curtida.all():
+            
+        noticias.curtida.remove(request.user)
+        
+    
+    
+    else:
+        noticias.curtida.add(request.user)
+        
+
+    
     return redirect('mural')
+        
+
+    
    

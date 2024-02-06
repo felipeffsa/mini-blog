@@ -430,9 +430,7 @@
         {% for noticia in noticias  %}
         <div class='div-main-aviso'>
             <div class='div-esquerda'>
-                {% if not user.username %}
-                <h3>Por: {{noticia.user}}</h3>
-                {% endif %}
+                
              
                 {% if noticia.user.username == user.username %}
                 <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: Você</b></p></a>
@@ -451,16 +449,16 @@
                     <a style ='text-decoration:none ' href="{% url "noticia_nova" noticia.id %}"><div class='div-botoes botao-editar'><b>Editar</b></div></a>
                     <a style ='text-decoration:none ' href="{% url "aviso_deletar" noticia.id %}"> <div class='div-botoes botao-apagar'><b>Apagar</b></div></a>
 
-                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}"> <div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
+                    <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}" ><div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
             
-                    <h4>{{noticia.curtida}}</h4>
+                    <h4>{{noticia.curtida.count}}</h4>
                     
                 </div>
                 {% else %}
                 <div class='div-mural-botoes'>
                     <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar'><b>Visualizar</b></div></a>
                     <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}"> <div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
-                    <h4>{{noticia.curtida}}</h4>
+                    <h4>{{noticia.curtida.count}}</h4>
                 </div>
                 {% endif %}
             </div>
@@ -472,6 +470,7 @@
             </div>
         </div>
         <hr>
+        
 
         {% endfor %}
         
@@ -494,5 +493,7 @@
     </footer>
 
 </body>
+
+
 
 </html>
