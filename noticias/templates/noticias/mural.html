@@ -433,10 +433,16 @@
                 
              
                 {% if noticia.user.username == user.username %}
-                <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: Você</b></p></a>
+                <div style ='display:flex; justify-content: space-between'>
+                    <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{ noticia.user }}</b></p></a>
+                    <img class='user-img' style ='width:50px; height:50px' src={{ noticia.user.userprofile.profile_image.url }} alt="{{ noticia.user.userprofile.profile_image.url }}">
+                    </div>
 
                 {% else %}
+                <div style ='display:flex; justify-content: space-between'>
                 <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{ noticia.user }}</b></p></a>
+                <img class='user-img' style ='width:50px; height:50px' src={{ noticia.user.userprofile.profile_image.url }} alt="{{ noticia.user.userprofile.profile_image.url }}">
+                </div>
                 {% endif %}
              
              
@@ -466,11 +472,11 @@
                 </div>
                 {% else %}
             
-                <div class='div-mural-botoes'>
+                <div class='div-mural-botoes' style = 'display:flex; justify-content: space-between;'>
                     <a style ='text-decoration:none ' href="{% url "visualizar" noticia.id %}"><div class='div-botoes botao-visualizar '><b>Visualizar</b></div></a>
                     <a style ='text-decoration:none; color:black ' href="{% url "curtida" noticia.id %}" ><div style ='background-color:pink'class='div-botoes '>Curtir</div></a>
                 
-                    <h4>Curtidas-{{noticia.curtida.count}}</h4>
+                    <a href=''>Curtidas-{{noticia.curtida.count}}<a>
                 </div>
 
                
