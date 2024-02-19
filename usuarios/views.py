@@ -51,7 +51,7 @@ def cadastro(request):
     )
     messages.add_message(request, constants.SUCCESS,
                          'Usuário cadastrado com sucesso')
-    return render(request, 'cadastro.html')
+    return redirect('login')
 
 
 def logar(request):
