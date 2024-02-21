@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Digite uma mensagem</h1>
+        </div>
+        <div class="col"></div>
+       
+        <div class="col-12 col-lg-4" style ='margin-top:150px'>
+            <img  src = {{user.userprofile.profile_image.url }} class ='w-25 border border-dark rounded-circle'>
+            <div class="form-floating mt-3">
+                <form action = "{% url "noticia_nova" noticia.id %}" method ='POST'>
+                    {% csrf_token %}
+                <textarea class="form-control" placeholder="Escreva uma mensagem aqui" name ='mensagem' id="floatingTextarea2" style="height: 100px;">{{noticia.notice}}</textarea>
+                
+            </div>
+            <button class ='btn btn-primary mt-3'>Ok</button>
+        </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock conteudo %}

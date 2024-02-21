@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+ <div class="container">
+    <h1 class ='text-center mt-3 border-bottom border-dark'>Perfil</h1>
+ </div>
+ <div class="container">
+ <div class="row">
+    <div class="col-12">
+        <img src = "{{perfil.profile_image.url}}" class ='w-25 border border-dark rounded-circle'>
+        <span style ='font-size:40px; margin-left:20px'>{{perfil.user}}</span>
+    </div>
+    <div class ='col-12 mt-5 '>
+        <h3 class ='text-center'>Um pouco sobre mim:</h3>
+        <div class ='border border-dark rounded p-2 fs-3' style ='height:400px'>
+            {{perfil.profile_text}}
+        </div>
+    </div>
+    <div class="col-12 mt-4">
+        <h4><a href="{% url "mensagens_publicadas" perfil.user.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+          </svg><span class ='ms-4'>Esse usuário possui <span>{{perfil.user.noticia.count}}</span> mensagens publicadas</span></a></h4>
+          <a href="{% url "mural"  %}" class ='d-flex mt-3'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+              </svg><span class ='fs-3 ms-2'>Voltar</span></a>
+    </div>
+
+{% endblock conteudo %}

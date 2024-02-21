@@ -1,0 +1,10 @@
+.tamanho-area{
+    max-height: 1000px;
+    border-radius: 10px;
+    border: 7px solid rgba(0, 0, 0, 0.418);
+    
+}
+.tamanho-imagem{
+    max-width: 180px;
+    max-height: 180px;
+}

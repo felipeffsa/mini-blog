@@ -21,12 +21,14 @@ from noticias.models import Noticias
 
 @login_required
 def cadastrar_noticias(request):
+    user = User.objects.get(username = request.user.username)
     if request.method == 'GET':
-        return render(request, 'noticias/cadastro_noticias.html')
+        return render(request, 'noticias/nova_noticia.html',context={'user':user})
 
     elif request.method == 'POST':
-        titulo = request.POST['titulo']
-        notice = request.POST['notice']
+        
+        notice = request.POST.get('mensagem')
+        titulo = "isso aqui deve ser temporario, apagar em breve"
         user = User.objects.get(id=request.user.id)
         if len(titulo) == 0:
             noticias = Noticias.objects.create(
@@ -57,13 +59,13 @@ def noticias(request):
     
         pessoa = UserProfile.objects.get(user=request.user)
 
-        return render(request, 'noticias/mural.html',
+        return render(request, 'noticias/mural_novo.html',
                       context={'noticias': noticias,
                                'user': user, 'pessoa': pessoa,})
 
     else:
     
-        return render(request, 'noticias/mural.html',
+        return render(request, 'noticias/mural_novo.html',
                       context={'noticias': noticias})
 
 
@@ -85,17 +87,14 @@ def aviso_deletar(request, id):
 
 @ login_required
 def noticia_nova(request, id):
-    try:
-        noticia = Noticias.objects.get(id=id)
-    except:
-        return redirect('not_found')
+    
+    noticia = Noticias.objects.get(id=id)
+    
     if request.user == noticia.user:
         if request.method == 'POST':
-            titulo = request.POST['titulo']
-            notice = request.POST['notice']
+            notice = request.POST.get('mensagem')
 
         # Atualize os campos da notícia
-            noticia.titulo = titulo
             noticia.notice = notice
             noticia.atualizado = True
             noticia.save()
@@ -105,7 +104,7 @@ def noticia_nova(request, id):
     else:
         return redirect('not_found')
 
-    return render(request, 'noticias/noticia_nova.html', {'noticia': noticia})
+    return render(request, 'noticias/nova_noticia_nova.html', {'noticia': noticia})
 
 
 @login_required
@@ -129,17 +128,21 @@ def perfil(request):
 
         return redirect('mural')
 
-    return render(request, 'noticias/perfil.html', context={'pessoa': pessoa})
-
+    return render(request, 'noticias/editar-perfil.html', context={'pessoa': pessoa})
+@login_required
+def mensagens_publicadas(request,id):
+    noticias = Noticias.objects.filter(user_id = id)
+    pessoa = noticias.first()
+    return render(request,'noticias/mensagens_usuario.html',context={'noticias':noticias,'pessoa':pessoa})
 
 @login_required
 def visualizar(request,id):
-    visualizar = Noticias.objects.get(id=id)
-    return render(request, 'noticias/visualizar.html', context={'visualizar':visualizar})
+    noticia = Noticias.objects.get(id=id)
+    return render(request, 'noticias/mensagem_completa.html', context={'noticia':noticia})
 
 def outperfil(request, id):
     perfil = UserProfile.objects.get(id=id)
-    return render(request, 'noticias/outperfil.html',
+    return render(request, 'noticias/perfil_fora.html',
                   context={'perfil': perfil})
 @login_required
 def curtida(request, id):

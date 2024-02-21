@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+   
+{% block conteudo %}
+<div class="container mt-5">
+    <h1 class ='text-center'>Mensagens</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex">
+            <img src="{{pessoa.user.userprofile.profile_image.url}}" class ='w-25 border border-dark rounded-circle'>
+            <h2 class ='mt-5 ms-5 text-primary'><strong>{{pessoa.user}}</strong></h2>
+        </div>
+        <div class="col-12 mt-5">
+            <div class ='container scrollable-div'>
+                {% for noticia in noticias %}
+                <!--Começo do container da mensagem completa-->
+              <div class ='border border-dark rounded p-2'>
+                    <div class="row">
+                        <div class="col-12">
+                        
+                            <!-- Div do editado e botao de recolher-->
+                            <div class ='float-end d-flex'>
+                            {% if noticia.atualizado %}
+                            <span style ='color:blue'>Editado</span>
+                            {% endif %}
+                            <!--Começo do dropdown-->
+                            <div class="dropdown">
+                     
+                                <!-- Ícone de três pontos -->
+                                <div class ='ms-3'data-bs-toggle="dropdown" aria-expanded="false" style ='width:25px'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical points" viewBox="0 0 16 16">
+                                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                  </svg>
+                                </div>
+                                
+                           
+                              <ul class="dropdown-menu">
+                                <!-- Lista de ações -->
+                                <li><a class="dropdown-item" href="#">{{noticia.data}}</a></li>
+                                {% if noticia.atualizado %}
+                                <li><a class="dropdown-item" href="#">Editado: 17 de Fevereiro às 10:06</a></li>
+                                {% endif %}
+                            
+                              </ul>
+                            </div>
+                            <!--Fim do dropdown-->
+                            </div>
+                            <!-- Fim da div de editado e botao de recolher-->
+                        </div>
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex flex-column">
+                            <span><strong>Mensagem: </strong>{{noticia.notice}}</span>
+                            <div class ='botoes'>
+                            <a href = '{% url "visualizar" noticia.id %}'><span class ='btn btn-primary'> Ver</span></a>
+                            <span class ='btn btn-warning' id ='mudarFundo' onclick="mudarFundo()">Curtir</span>
+                            
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                              </svg> {{noticia.curtida.count}}</span>
+                        </div>
+            
+                        </div>
+                       
+                    </div>
+              </div>
+              <br>
+              <!--Fim do container da mensagem completa-->
+              {% endfor %}
+              
+  
+    </div>
+</div>
+<div class="col mt-5">
+    <a href="{% url "out_perfil" pessoa.user.userprofile.id %}" class ='d-flex'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+      </svg><span class ='fs-3 ms-2'>Voltar</span></a>
+</div>
+</div>
+{% endblock conteudo %}

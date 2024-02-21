@@ -434,7 +434,7 @@
              
                 {% if noticia.user.username == user.username %}
                 <div style ='display:flex; justify-content: space-between'>
-                    <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: {{ noticia.user }}</b></p></a>
+                    <a style = 'text-decoration: none'href="{% url "out_perfil" noticia.user.id %}"><p><b>Por: Você</b></p></a>
                     <img class='user-img' style ='width:50px; height:50px' src={{ noticia.user.userprofile.profile_image.url }} alt="{{ noticia.user.userprofile.profile_image.url }}">
                     </div>
 

@@ -12,7 +12,8 @@ urlpatterns = [
     path('outperfil/<int:id>/', views.outperfil, name='out_perfil'),
     path('visualizar/<int:id>/', views.visualizar, name ='visualizar'),
     path('curtida/<int:id>/', views.curtida, name ='curtida'),
-    path('login_required/',views.necessita_login,name='necessita_login')
+    path('login_required/',views.necessita_login,name='necessita_login'),
+    path('mensagens_publicadas/<int:id>/', views.mensagens_publicadas, name ='mensagens_publicadas')
 
 
 ]

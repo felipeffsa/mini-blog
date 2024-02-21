@@ -6,7 +6,7 @@ from django.db import models
 
 # Create your models here.
 class Noticias(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='noticia')
     titulo = models.CharField(max_length=50)
     notice = models.TextField()
     data = models.DateTimeField(auto_now_add=True)

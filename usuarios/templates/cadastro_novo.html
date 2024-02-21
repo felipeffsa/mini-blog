@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% load static %}
+   
+{% block conteudo %}
+    <div class="container d-flex justify-content-between align-items-center mt-4 border-bottom border-dark">
+        <div>
+         <h1>Cadastro</h1>
+        </div>
+        <div>
+         <div class="btn btn-primary">Entrar</div>
+        </div>
+     </div>
+     <div class="container mt-5">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-3"><img src="{% static "img/castor.png" %}" alt=""></div>
+            <div class="col"></div>
+            
+        </div>
+        <div class="row">
+            
+        <div class="col-6 " style ='width:450px; margin:0 auto; margin-top: 50px'>
+     <form action ="." method ='POST'>
+      {% csrf_token %}
+      
+        {% for field in form %}
+        <p>
+        <label style ='margin-left:5rem'for ="{{field.id_for_label}}">{{field.label}}
+          
+          <p class 'form-control' style='margin-left:5rem'>
+          {{field}}
+          </p>
+          
+          {{field.errors}}
+        </label>
+      </p>
+      
+        {% endfor %}
+   
+    
+        <button style ='margin-left: 5rem' type="submit" class="btn btn-primary">Ok</button>
+      </form>
+    </div>
+    </div>
+</div>
+
+{% endblock conteudo %}
